@@ -2,7 +2,6 @@ package med.voll.api.dominio.medico;
 
 import med.voll.api.dominio.endereco.Endereco;
 import med.voll.api.dto.DadosCadastroMedico;
-import med.voll.api.dto.Especialidade;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -39,11 +38,28 @@ public class Medico {
 	private String email;
 	private String crm;
 	private String telefone;
+	private Boolean ativo;
 	
 	@Enumerated(EnumType.STRING)
 	private Especialidade especialidade;
 	
 	@Embedded
 	private Endereco endereco;
+
+	public void atualizarInformacoes(DadosAtualizacaoMedico dados) {
+		if(dados.nome() != null) {
+			this.nome = dados.nome();
+		}
+		if(dados.telefone() != null) {
+			this.telefone = dados.telefone();
+		}		
+		if(dados.endereco() != null) {
+			this.endereco.atualizarInformacoes(dados.endereco());
+		}			
+	}
+
+	public void excluir() {
+		this.ativo = false;
+	}
 	
 }

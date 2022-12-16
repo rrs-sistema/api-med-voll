@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import med.voll.api.dominio.endereco.DadosEndereco;
+import med.voll.api.dominio.medico.Especialidade;
 
 public record DadosCadastroMedico(
 		@NotBlank
