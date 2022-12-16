@@ -1,6 +1,6 @@
-package med.voll.api.dominio.medico;
+package med.voll.api.domain.medico;
 
-import med.voll.api.dominio.endereco.Endereco;
+import med.voll.api.domain.endereco.Endereco;
 import med.voll.api.dto.DadosCadastroMedico;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -30,6 +30,7 @@ public class Medico {
 		this.telefone = dados.telefone();
 		this.especialidade= dados.especialidade();
 		this.endereco = new Endereco(dados.endereco());
+		this.ativo = true;
 	}
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
